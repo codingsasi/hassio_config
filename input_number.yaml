@@ -1,0 +1,36 @@
+  basement_home_volume:
+    name: Basement Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  office_home_volume:
+    name: Office Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  kitchen_home_volume:
+    name: Kitchen Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  living_room_home_volume:
+    name: Living Room Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  master_home_volume:
+    name: Master Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  shop_home_volume:
+    name: Shop Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05

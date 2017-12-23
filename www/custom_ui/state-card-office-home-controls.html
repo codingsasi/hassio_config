@@ -1,0 +1,90 @@
+<dom-module id="state-card-google-home-controls">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    <style>
+      :host {
+        line-height: 1.5;
+      }
+      paper-button {
+        min-width: 60px;
+        background-color:#f3f3f3
+      }
+    </style>
+  
+    <div class='horizontal justified layout'>
+      <state-info state-obj="[[stateObj]]"></state-info>
+      <div>[[this.stateObj.entity_id]]</div>
+      <!-- <div>[[this.hass.get('media_player.' + this.stateObj.entity_id)]] [[stateObj.attributes.media_title]] by [[stateObj.attributes.media_artist]]</div>  -->
+      <!-- Should only give this state if something is playing -->
+      <!-- Change to be a script instead and then act upon the hass object get entity id of media_player  -->
+      <!-- <paper-button-group>
+        <paper-button on-tap="skipPrevious"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#848484" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M8,8H10V16H8M16,8V16L11,12"/></svg></paper-button>        
+        <paper-button on-tap="playPause"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#848484" d="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg></paper-button>
+        <paper-button on-tap="skipNext"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#848484" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M8,8L13,12L8,16M14,8H16V16H14" /></svg></paper-button>
+      </paper-button-group>
+      <paper-button-group>
+        <paper-input label="stateObj.entity_id + '_tts'"></paper-input>
+        <paper-button on-tap="sendTTS"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#848484" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" /></svg></paper-button>            
+      </paper-button-group> -->
+    </div>
+  </template>
+  </dom-module>
+  <script>
+    Polymer({
+      is: 'state-card-google-home-controls',
+      properties: {
+        hass: {
+          type: Object,
+        },
+        stateObj: {
+          type: Object,
+        },
+        mediaValue: {
+          type: String,
+          value: ' ',
+        },
+      },
+      skipPrevious: function (ev) {
+        this.callService('media_player', 'media_previous_track', {}, ev);
+      },
+      playPause: function (ev) {
+        this.callService('media_player', 'media_play_pause', {}, ev);
+      },
+      skipNext: function (ev) {
+        this.callService('media_player', 'media_next_track', {}, ev);
+      },
+      sendTTS: function (ev) {
+        var 
+        this.callService('tts', 'google_say', { message : "[[this.hass.get('input_text.' +this.stateObj.entity_id + '_tts')]]"}, ev)
+      },
+      getEntityId: function () {
+        var mainFloorGroup = ['office_home','kitchen_home','living_room_home'];
+        var upperMainFloorGroup = ['kitchen_home','living_room_home'];
+        var livingRoomGroup = ['living_room_home'];
+
+        if (this.hass.is_state('media_player.whole_house', 'playing') || this.hass.is_state('media_player.whole_house', 'paused')) {
+          return 'whole_house';
+        }
+
+        if (mainFloorGroup.indexOf(this.stateObj.entity_id) && (this.hass.is_state('media_player.main_floor', 'playing') ||  this.hass.is_state('media_player.main_floor', 'paused'))) {
+          return 'main_floor';
+        }
+
+        if (this.stateObj.entity_id in upperMainFloorGroup && (this.hass.is_state('media_player.upper_main_floor', 'playing') || this.hass.is_state('media_player.upper_main_floor', 'paused'))) {
+          return 'upper_main_floor';
+        }
+
+        if (this.stateObj.entity_id in livingRoomGroup && (this.hass.is_state('media_player.living_room', 'playing') || this.hass.is_state('media_player.living_room', 'paused'))) {
+          return 'living_room';
+        }
+
+        return this.stateObj.entity_id;
+      },
+      callService(service_type, service, data, ev) {
+        var serviceData = data || {};
+        serviceData.entity_id = this.stateObj.entity_id;
+        this.hass.callService(service_type, service, serviceData);
+        ev.stopPropagation();
+      },
+    });
+  </script>

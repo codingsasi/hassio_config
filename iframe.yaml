@@ -1,0 +1,24 @@
+  ide:
+    title: IDE
+    icon: mdi:code-braces
+    url: 'http://hassio.local:8321'
+  pihole:
+    title: Pi-hole
+    icon: mdi:block-helper
+    url: http://hassio.local/admin/index.php
+  nodered_flows:
+    title: 'Node-RED Flows'
+    url: 'http://hassio.local:1880'
+    icon: mdi:nodejs
+  # nodered_ui:
+  #   title: 'Node-RED Dashboard'
+  #   url: 'http://hassio.local:1880/ui'
+  #   icon: mdi:nodejs
+  terminal:
+    title: Terminal
+    icon: mdi:console
+    url: https://addres.to.your.hass.io:7681
+  openhab:
+   title: 'OpenHAB 2'
+   url: 'http://hassio.local:8080/'
+   icon: mdi:emoticon-devil

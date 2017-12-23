@@ -1,0 +1,260 @@
+  start_vacuum:
+    alias: Start Rosie
+    sequence:
+      - service: broadlink.send_packet_192_168_0_124
+        data:
+          packet: 
+            - 'JgBIAAABJ5QTEhISEhMSEhISExISNxMSEjgSEhM3EhITNxISEjgSExISEhMSNxMSEhISExI3EhMSOBI3EhMSNxM3EjcSExI4EgANBQ=='
+  #TODO Put each type in their own config file
+  office_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {% else %}
+              media_player.office_home
+            {% endif %}
+  kitchen_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {% else %}
+              media_player.kitchen_home
+            {% endif %}
+  living_room_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {%-elif is_state('media_player.living_room', 'playing') %}
+              media_player.living_room
+            {% else %}
+              media_player.living_room_home
+            {% endif %} 
+  basement_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.basement_home
+            {% endif %} 
+  shop_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.shop_home
+            {% endif %} 
+  master_home_previous:
+    sequence:
+      - service: media_player.media_previous_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.master_home
+            {% endif %} 
+  office_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {% else %}
+              media_player.office_home
+            {% endif %}
+  kitchen_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {% else %}
+              media_player.kitchen_home
+            {% endif %}
+  living_room_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {%-elif is_state('media_player.living_room', 'playing') %}
+              media_player.living_room
+            {% else %}
+              media_player.living_room_home
+            {% endif %} 
+  basement_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.basement_home
+            {% endif %} 
+  shop_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.shop_home
+            {% endif %} 
+  master_home_next:
+    sequence:
+      - service: media_player.media_next_track
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.master_home
+            {% endif %} 
+  office_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {% else %}
+              media_player.office_home
+            {% endif %}
+  kitchen_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {% else %}
+              media_player.kitchen_home
+            {% endif %}
+  living_room_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {%-elif is_state('media_player.main_floor', 'playing') %}
+              media_player.main_floor
+            {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+              media_player.upper_main_floor
+            {%-elif is_state('media_player.living_room', 'playing') %}
+              media_player.living_room
+            {% else %}
+              media_player.living_room_home
+            {% endif %} 
+  basement_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.basement_home
+            {% endif %} 
+  shop_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.shop_home
+            {% endif %} 
+  master_home_play_pause:
+    sequence:
+      - service: media_player.media_play_pause
+        data_template:
+          entity_id: >
+            {% if is_state('media_player.whole_house', 'playing') %}
+              media_player.whole_house
+            {% else %}
+              media_player.master_home
+            {% endif %} 
+  office_home_tts: # TODO Should I set a default volume? And then clear out what was in the input_text
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.office_home
+          message: "{{ states.input_text.office_home_tts.state }}"
+  basement_home_tts:
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.basement_home
+          message: "{{ states.input_text.basement_home.state }}"
+  kitchen_home_tts:
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.kitchen_home
+          message: "{{ states.input_text.kitchen_home_tts.state }}"
+  living_room_home_tts:
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.living_room_home
+          message: "{{ states.input_text.living_room_home_tts.state }}"
+  master_home_tts:
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.master_home
+          message: "{{ states.input_text.master_home_tts.state }}"
+  shop_home_tts:
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.shop_home
+          message: "{{ states.input_text.shop_home_tts.state }}" ## TODO Service input_text.set_value

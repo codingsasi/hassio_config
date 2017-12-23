@@ -1,0 +1,18 @@
+
+- cal_id: !secret cal_chelsea
+  entities:
+  - device_id: chelsea
+    name: Chelsea
+    track: true
+
+- cal_id: !secret cal_ian
+  entities:
+  - device_id: ian
+    name: Ian
+    track: true
+
+- cal_id: !secret cal_family
+  entities:
+  - device_id: family
+    name: Family
+    track: true

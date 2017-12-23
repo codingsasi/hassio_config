@@ -1,0 +1,242 @@
+   lights:
+    name: Controls
+    view: yes
+    entities:
+      - device_tracker.ian_ians_phone
+      - device_tracker.chelsea_chelseas_phone
+      - group.livingroom
+      - group.garage
+      - group.office
+      - group.basement
+      - group.master
+      - group.shop
+      - group.kitchen
+      - climate.thermostat
+  current:
+    name: Current
+    view: yes
+    entities:
+      - device_tracker.ian_ians_phone
+      - device_tracker.chelsea_chelseas_phone
+      - group.twitch
+      - group.internet
+      - group.automatic
+      - group.weather
+      - climate.thermostat
+      - group.travel
+      - group.calendar
+  system:
+    name: System
+    view: yes
+    entities:
+      - device_tracker.ian_ians_phone
+      - device_tracker.chelsea_chelseas_phone
+      - group.system_sensors
+      - group.pihole
+      - group.wink
+  media:
+    name: Media
+    view: yes
+    entities:
+      - device_tracker.ian_ians_phone
+      - device_tracker.chelsea_chelseas_phone
+      - group.google_music
+      - group.basement_tv
+      - group.chromecast_radio
+      - group.chromecasts
+  # upstairs:
+  #   name: Upstairs 
+  #   # view: yes
+  #   entities:
+  chromecasts:
+    name: Chromecasts
+    entities:
+      - media_player.master_home
+      - media_player.kitchen_home
+      - media_player.main_floor
+      - media_player.office_home
+      - media_player.whole_house
+      - media_player.basement_home
+      - media_player.living_room_home
+      - media_player.shop_home
+  system_sensors:
+    entities:
+      - sensor.disk_used_home
+      - sensor.ram_available
+  wake_up_alarm:
+    name: Wakeup Light with Radio
+    control: hidden
+    entities:
+      - input_boolean.alarm_clock
+      - sensor.alarmtime
+      - sensor.time_until_alarm
+      - input_number.alarm_hour
+      - input_number.alarm_minutes
+      - input_boolean.lullaby
+      - input_select.lullaby
+      - input_select.radio_wakeup
+  livingroom_front_lights:
+    name: Living Room Front Lights
+    entities:
+      - light.living_room_front_left
+      - light.living_room_front_middle
+      - light.living_room_front_right
+  livingroom_back_lights:
+    name: Living Room Back Lights
+    entities:
+      - light.living_room_back_left
+      - light.living_room_back_middle
+      - light.living_room_back_right
+  livingroom_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room_front_left
+      - light.living_room_front_middle
+      - light.living_room_front_right
+      - light.living_room_back_left
+      - light.living_room_back_middle
+      - light.living_room_back_right
+  livingroom:
+    name: Living Room
+    entities:
+      - group.livingroom_lights
+      - input_number.livingroom_brightness
+      - switch.wemo_switch
+      - input_number.living_room_home_volume
+  basement_front_lights:
+    name: Basement Front Lights
+    entities:
+      - light.basement_front_left
+      - light.basement_front_right
+  basement_back_lights:
+   name: Basement Back Lights
+   entities:
+     - light.basement_back_left
+     - light.basement_back_right   
+  basement_lights:
+    name: Basement Lights
+    entities:
+      - light.basement_front_left
+      - light.basement_front_right
+      - light.basement_back_left
+      - light.basement_back_right 
+  basement:
+    name: Basement 
+    entities:
+      - group.basement_lights
+      - input_number.basement_brightness
+      - input_number.basement_home_volume
+  office_lights:
+    name: Office Lights
+    entities:
+      - light.office_left
+      - light.office_right
+  office:
+    name: Office
+    entities:
+      - group.office_lights
+      - input_number.office_brightness
+      - input_number.office_home_volume
+  garage_lights:
+    name: Garage Lights
+    entities:
+      - light.garage_left
+      - light.garage_right
+  garage:
+    name: Garage
+    entities:
+      - cover.left_garage_door_2
+      - cover.right_garage_door_2
+      - group.garage_lights
+  master_lights:
+    name: Master Lights
+    entities:
+      - light.master_bed
+      - light.master_closet
+  master:
+    name: Master Bedroom
+    entities:
+      - group.master_lights
+      - input_number.master_home_volume
+  shop:
+    name: Shop
+    entities:
+      - input_number.shop_home_volume
+  kitchen:
+    name: Kitchen
+    entities:
+      - input_number.kitchen_home_volume
+  twitch:
+    name: Twitch
+    entities:
+      - sensor.timthetatman
+      - sensor.moonmoon_ow
+  internet:
+    name: Internet
+    entities:
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+  weather:
+    name: Weather
+    entities:
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_nearest_storm_distance
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_daily_high_apparent_temperature
+      - sensor.dark_sky_daily_low_apparent_temperature
+      - camera.omaha
+  automatic:
+    name: Vehicles
+    entities:
+      - device_tracker.c_e67e6ca7b400bbe2
+      # - camera.van
+  hvac:
+    name: HVAC
+    entities:
+      - input_select.hvac_operation_mode
+      - input_select.hvac_fan_mode
+      - input_number.hvac_target_temp
+  travel:
+    name: Travel Times
+    entities:
+      - sensor.ians_phone_to_home
+      - sensor.chelseas_phone_to_home
+      - sensor.ians_phone_to_daycare
+      - sensor.chelseas_phone_to_daycare
+      - sensor.chelseas_phone_to_bancroft
+      - sensor.ian_address
+      - sensor.chelsea_address
+  calendar:
+    name: Calendars
+    entities:
+      - calendar.contacts
+      - calendar.cswehlagmailcom
+      - calendar.holidays_in_united_states
+      - calendar.iantrichgmailcom
+  wink:
+    name: Wink Hub
+    entities:
+      - binary_sensor.wink_hub
+  chromecast_radio:
+    name: Chromecast Radio
+    entities:
+      - input_select.radio_station
+      - input_select.chromecast_radio
+      - input_number.chromecast_volume
+      - script.radio_stop
+  google_music:
+    name: Google Music 
+    entities:
+      - input_select.gpm_playlist
+      - input_select.chromecast_radio
+      - input_number.chromecast_volume
+      - switch.google_music
+  pihole:
+    name: Pi-Hole
+    entities:
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today

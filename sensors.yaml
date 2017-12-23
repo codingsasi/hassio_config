@@ -1,0 +1,156 @@
+  #DARKSKY
+  - platform: darksky
+    api_key: !secret darksky_api
+    monitored_conditions:
+      - summary
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - precip_probability
+      - temperature
+      - humidity
+      - apparent_temperature_max
+      - apparent_temperature_min
+  #SPEEDTEST
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  #TWITCH
+  - platform: twitch
+    channels:
+      - TimTheTatman
+      - MOONMOON_OW
+  #WEATHER UNDERGROUND
+  - platform: wunderground
+    api_key: !secret wundergroup_key
+    monitored_conditions:
+      - alerts
+  #TRAVEL TIME
+  - platform: google_travel_time
+    name: Chelsea's Phone To Home
+    api_key: !secret distance_matrix_api
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Home
+    options:
+      units: imperial
+  - platform: google_travel_time
+    name: Chelsea's Phone To Daycare
+    api_key: !secret distance_matrix_api
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Daycare
+    options:
+      units: imperial
+  - platform: google_travel_time
+    name: Chelsea's Phone To Bancroft
+    api_key: !secret distance_matrix_api
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Bancroft
+    options:
+      units: imperial
+  - platform: google_travel_time
+    name: Ian's Phone To Home
+    api_key: !secret distance_matrix_api
+    origin: device_tracker.ian_ians_phone
+    destination: zone.Home
+    options:
+      units: imperial
+  - platform: google_travel_time
+    name: Ian's Phone To Daycare
+    api_key: !secret distance_matrix_api
+    origin: device_tracker.ian_ians_phone
+    destination: zone.Daycare
+    options:
+      units: imperial
+  #SYSTEM MONITOR
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+  - platform: pi_hole
+  # - platform: template
+  #   sensors:
+      # office_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.main_floor', 'playing') %}
+      #       "{{ states.media_player.main_floor.attributes.media_title }} by {{ states.media_player.main_floor.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.office_home', 'playing') %}
+      #       "{{ states.media_player.office_home.attributes.media_title }} by {{ states.media_player.office_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}
+      # kitchen_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.main_floor', 'playing') %}
+      #       "{{ states.media_player.main_floor.attributes.media_title }} by {{ states.media_player.main_floor.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+      #       "{{ states.media_player.upper_main_floor.attributes.media_title }} by {{ states.media_player.upper_main_floor.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.kitchen_home', 'playing') %}
+      #       "{{ states.media_player.kitchen_home.attributes.media_title }} by {{ states.media_player.kitchen_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}   
+      # living_room_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.main_floor', 'playing') %}
+      #       "{{ states.media_player.main_floor.attributes.media_title }} by {{ states.media_player.main_floor.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.upper_main_floor', 'playing') %}
+      #       "{{ states.media_player.upper_main_floor.attributes.media_title }} by {{ states.media_player.upper_main_floor.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.living_room', 'playing') %}
+      #       "{{ states.media_player.living_room.attributes.media_title }} by {{ states.media_player.living_room_home.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.living_room_home', 'playing') %}
+      #       "{{ states.media_player.living_room_home.attributes.media_title }} by {{ states.media_player.living_room_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}
+      # master_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.master_home', 'playing') %}
+      #       "{{ states.media_player.master_home.attributes.media_title }} by {{ states.media_player.master_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}
+      # basement_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.basement_home', 'playing') %}
+      #       "{{ states.media_player.basement_home.attributes.media_title }} by {{ states.media_player.basement_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}
+      # shop_home_media:
+      #   friendly_name: " "
+      #   value_template: >-
+      #     {% if is_state('media_player.whole_house', 'playing') %}
+      #       "{{ states.media_player.whole_house.attributes.media_title }} by {{ states.media_player.whole_house.attributes.media_artist }}"
+      #     {%-elif is_state('media_player.shop_home', 'playing') %}
+      #       "{{ states.media_player.shop_home.attributes.media_title }} by {{ states.media_player.shop_home.attributes.media_artist }}"
+      #     {% else %}
+      #       " "
+      #     {% endif %}
+  # If done through a custom UI and can make a custom UI for a group (don't think so) could go based off the group name to get lights if available and all media devices if named properly
+  - platform: google_geocode
+    name: ian_address
+    origin: device_tracker.ian_ians_phone
+    options: street_number, street, city
+    api_key: !secret geocoding_key
+  - platform: google_geocode
+    name: chelsea_address
+    origin: device_tracker.chelsea_chelseas_phone
+    options: street_number, street, city
+    api_key: !secret geocoding_key
