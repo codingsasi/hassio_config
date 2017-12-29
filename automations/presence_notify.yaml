@@ -1,0 +1,25 @@
+  - alias: Chelsea left home # TODO Don't do this at night
+    trigger:
+      - platform: state
+        entity_id: device_tracker.chelsea_chelseas_phone
+        from: 'home'
+        to: 'not_home'
+        for:
+          minutes: 5
+    action:
+      - service: notify.ian
+        data:
+          message: "Chelsea just left home at {{ now() }}"
+  - alias: ChelsIanea left home # TODO Don't do this at night
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ian_ians_phone
+        from: 'home'
+        to: 'not_home'
+        for:
+          minutes: 5
+    action:
+      - service: notify.chelsea
+        data:
+          message: "Ian just left home at {{ now() }}"
+  

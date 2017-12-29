@@ -1,0 +1,18 @@
+    switch.wemo_switch:
+      friendly_name: Christmas Lights
+    sensor.dark_sky_summary:
+      friendly_name: Summary
+    sensor.dark_sky_nearest_storm_distance:
+      friendly_name: Nearest Storm
+    sensor.dark_sky_precip_probability:
+      friendly_name: Chance of Rain
+    sensor.dark_sky_humidity:
+      friendly_name: Humidity
+    sensor.dark_sky_temperature:
+      friendly_name: Temperature
+    sensor.dark_sky_apparent_temperature:
+      friendly_name: Feels Like
+    sensor.dark_sky_daily_high_apparent_temperature:
+      friendly_name: Feels Like High
+    sensor.dark_sky_daily_low_apparent_temperature:
+      friendly_name: Feels Like Low

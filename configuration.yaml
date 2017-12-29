@@ -1,3 +1,6 @@
+# TODO Alarm clock input_text with two fields for hour and minute
+# TODO Build an automation for the yeelight to cycle through colors when the dimmer switches are pressed
+
 homeassistant:
   name: Home
   latitude: !secret home_lat
@@ -5,74 +8,7 @@ homeassistant:
   elevation: 391
   unit_system: imperial
   time_zone: America/Chicago
-  customize:
-    switch.wemo_switch:
-      friendly_name: Christmas Lights
-    sensor.dark_sky_summary:
-      friendly_name: Summary
-    sensor.dark_sky_nearest_storm_distance:
-      friendly_name: Nearest Storm
-    sensor.dark_sky_precip_probability:
-      friendly_name: Chance of Rain
-    sensor.dark_sky_humidity:
-      friendly_name: Humidity
-    sensor.dark_sky_temperature:
-      friendly_name: Temperature
-    sensor.dark_sky_apparent_temperature:
-      friendly_name: Feels Like
-    sensor.dark_sky_daily_high_apparent_temperature:
-      friendly_name: Feels Like High
-    sensor.dark_sky_daily_low_apparent_temperature:
-      friendly_name: Feels Like Low
-    script.office_home_previous:
-      icon: mdi:skip-previous
-    script.kitchen_home_previous:
-      icon: mdi:skip-previous
-    script.living_room_home_previous:
-      icon: mdi:skip-previous
-    script.basement_home_previous:
-      icon: mdi:skip-previous
-    script.shop_home_previous:
-      icon: mdi:skip-previous
-    script.master_home_previous:
-      icon: mdi:skip-previous
-    script.office_home_next:
-      icon: mdi:skip-next
-    script.kitchen_home_next:
-      icon: mdi:skip-next
-    script.living_room_home_next:
-      icon: mdi:skip-next
-    script.basement_home_next:
-      icon: mdi:skip-next
-    script.shop_home_next:
-      icon: mdi:skip-next
-    script.master_home_next:
-      icon: mdi:skip-next
-    script.office_home_play_pause:
-      icon: mdi:play-pause
-    script.kitchen_home_play_pause:
-      icon: mdi:play-pause
-    script.living_room_home_play_pause:
-      icon: mdi:play-pause
-    script.basement_home_play_pause:
-      icon: mdi:play-pause
-    script.shop_home_play_pause:
-      icon: mdi:play-pause
-    script.master_home_play_pause:
-      icon: mdi:play-pause
-    sensor.office_home_media:
-      icon: mdi:music-note
-    media_player.living_room_home:
-      entity_picture: ''
-    media_player.office_home:
-      entity_picture: ''
-    media_player.kitchen_home:
-      entity_picture: ''
-    media_player.basement_home:
-      entity_picture: ''
-    media_player.shop_home:
-      entity_picture: ''
-
+  customize: !include customize.yaml
 config:
   # base_url: example.duckdns.org:8123 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 updater:
@@ -85,8 +21,7 @@ logbook:
 sun:
 # mqtt:
 python_script:
-media_player:
-  - platform: roku
+media_player: !include media_player.yaml
 tts: !include tts.yaml
 http: !include http.yaml
 climate: !include climate.yaml
@@ -103,13 +38,5 @@ script: !include scripts.yaml
 light: !include lights.yaml
 input_number: !include input_number.yaml
 camera: !include camera.yaml
-# input_text: !include input_text.yaml
-notify:
-  - name: ian
-    platform: pushbullet
-    api_key: !secret pushbullet_key
-
-
-  # Alarm clock input_text with two fields for hour and minute
-# panel_custom: !include panel.yaml
-# binary_sensor: !include binary_sensors.yaml
+notify: !include notify.yaml
+alert: !include alert.yaml

@@ -1,0 +1,120 @@
+  - alias: Basement Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.basement_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.basement_home
+          volume_level: '{{ states.input_number.basement_home_volume.state }}'
+  - alias: Keep Basement Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.basement_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.basement_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"
+  - alias: Office Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.office_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.office_home
+          volume_level: '{{ states.input_number.office_home_volume.state }}'
+  - alias: Keep Office Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.office_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.office_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"
+  - alias: Ktichen Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.kitchen_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.kitchen_home
+          volume_level: '{{ states.input_number.kitchen_home_volume.state }}'
+  - alias: Keep Kitchen Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.kitchen_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.kitchen_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"
+  - alias: Living Room Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.living_room_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.living_room_home
+          volume_level: '{{ states.input_number.living_room_home_volume.state }}'
+  - alias: Keep Living Room Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.living_room_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"
+  - alias: Master Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.master_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.master_home
+          volume_level: '{{ states.input_number.master_home_volume.state }}'
+  - alias: Keep Master Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.master_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.master_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"
+  - alias: Shop Home Volume
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: input_number.shop_home_volume
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.shop_home
+          volume_level: '{{ states.input_number.shop_home_volume.state }}'
+  - alias: Keep Shop Home Volume Slider in Sync
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: media_player.shop_home
+    action:
+      service: input_number.select_value
+      data_template:
+        entity_id: input_number.shop_home_volume
+        value: "{{states.media_player.playroom.attributes.volume_level | multiply (100) | int}}"

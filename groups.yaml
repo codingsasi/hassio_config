@@ -145,8 +145,8 @@
   garage:
     name: Garage
     entities:
-      - cover.left_garage_door_2
-      - cover.right_garage_door_2
+      - cover.left_garage_door
+      - cover.right_garage_door
       - group.garage_lights
   master_lights:
     name: Master Lights

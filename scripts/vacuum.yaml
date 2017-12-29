@@ -1,0 +1,8 @@
+    start_vacuum:
+    alias: Start Rosie
+    sequence:
+      - service: broadlink.send_packet_192_168_0_124
+        data:
+          packet: 
+            - 'JgBIAAABJ5QTEhISEhMSEhISExISNxMSEjgSEhM3EhITNxISEjgSExISEhMSNxMSEhISExI3EhMSOBI3EhMSNxM3EjcSExI4EgANBQ=='
+  

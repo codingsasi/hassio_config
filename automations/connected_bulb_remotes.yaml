@@ -1,0 +1,70 @@
+  - alias: 'Turn on master lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.master_bedroom', 'button_on_pressed', true) }}"
+    action:
+      - service: light.turn_on
+        entity_id: group.master_lights
+  - alias: 'Turn off master lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.master_bedroom', 'button_off_pressed', true) }}"
+    action:
+      - service: light.turn_off
+        entity_id: group.master_lights
+  - alias: 'Turn on office lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.office', 'button_on_pressed', true) }}"
+    action:
+      - service: light.turn_on
+        entity_id: group.office_lights
+  - alias: 'Turn off office lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.office', 'button_off_pressed', true) }}"
+    action:
+      - service: light.turn_off
+        entity_id: group.office_lights
+  - alias: 'Turn on garage lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.garage', 'button_on_pressed', true) }}"
+    action:
+      - service: light.turn_on
+        entity_id: group.garage_lights
+  - alias: 'Turn off garage lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.garage', 'button_off_pressed', true) }}"
+    action:
+      - service: light.turn_off
+        entity_id: group.garage_lights
+  - alias: 'Turn on basement lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.basement', 'button_on_pressed', true) }}"
+    action:
+      - service: light.turn_on
+        entity_id: group.basement_lights
+  - alias: 'Turn off basement lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.basement', 'button_off_pressed', true) }}"
+    action:
+      - service: light.turn_off
+        entity_id: group.basement_lights
+  - alias: 'Turn on livingroom lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.living_room', 'button_on_pressed', true) }}"
+    action:
+      - service: light.turn_on
+        entity_id: group.livingroom_lights
+  - alias: 'Turn off livingroom lights from remote'
+    trigger:
+      platform: template
+      value_template: "{{ is_state_attr('binary_sensor.living_room', 'button_off_pressed', true) }}"
+    action:
+      - service: light.turn_off
+        entity_id: group.livingroom_lights

@@ -1,0 +1,22 @@
+  - left_garage_door:
+      name: Left garage door is open
+      done_message: Left garage door is closed
+      entity_id: cover.left_garage_door
+      state: 'open'
+      repeat: 20
+      can_acknowledge: True
+      skip_first: True
+      notifiers:
+        - ian
+        - chelsea
+  - right_garage_door:
+      name: Right garage door is open
+      done_message: Right garage door is closed
+      entity_id: cover.right_garage_door
+      state: 'open'
+      repeat: 20
+      can_acknowledge: True
+      skip_first: True
+      notifiers:
+        - ian
+        - chelsea
