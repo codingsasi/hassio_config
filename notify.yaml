@@ -1,6 +1,3 @@
-  - name: ian
-    platform: pushbullet
-    api_key: !secret ian_pushbullet_key
-  - name: chelsea
-    platform: pushbullet
-    api_key: !secret chelsea_pushbullet_key
+  - platform: pushbullet
+    name: ian
+    api_key: !secret pushbullet_key

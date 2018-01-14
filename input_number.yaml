@@ -34,3 +34,45 @@
     min: 0.0
     max: 1.0
     step: 0.05
+  garage_home_volume:
+    name: Garage Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  bathroom_home_volume:
+    name: Bathroom Home Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.05
+  basement_brightness:
+    name: Basement Brightness
+    icon: mdi:brightness-7
+    min: 0
+    max: 100
+    step: 1
+  office_brightness:
+    name: Office Brightness
+    icon: mdi:brightness-7
+    min: 0
+    max: 100
+    step: 1
+  living_room_brightness:
+    name: Living Room Brightness
+    icon: mdi:brightness-7
+    min: 0
+    max: 100
+    step: 1
+  master_brightness:
+    name: Master Brightness
+    icon: mdi:brightness-7
+    min: 0
+    max: 100
+    step: 1
+  garage_brightness:
+    name: Garage Brightness
+    icon: mdi:brightness-7
+    min: 0
+    max: 100
+    step: 1

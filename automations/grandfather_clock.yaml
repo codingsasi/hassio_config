@@ -9,7 +9,6 @@
         before: '23:00:00'
       - condition: template
         value_template: >
-        # TODO Check whole house, main floor and upper main floor as well
           {% if is_state('media_player.living_room_speakers', 'playing') %}
             false
           {% else %}
@@ -27,6 +26,5 @@
         data_template:
           entity_id:
             - media_player.living_room_speakers
-          # TODO Update clock files
-          media_content_id: https://raw.githubusercontent.com/CCOSTAN/Home-AssistantConfig/master/sounds/cuckoo-clock-{{now().strftime("%I")}}.wav
+          media_content_id: https://github.com/iantrich/hassio_config/blob/master/www/GrandFatherChime{{now().strftime("%I")}}.wav?raw=true
           media_content_type: audio/mp4

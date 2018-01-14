@@ -1,4 +1,4 @@
-- alias: Play NPR in the morning
+  - alias: Play NPR in the morning
     trigger:
       platform: time
       at: '06:30:00'

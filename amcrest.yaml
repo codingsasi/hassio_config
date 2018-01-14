@@ -1,0 +1,10 @@
+  - host: http://192.168.1.28/
+    name: Livingroom
+    username: !secret amcrest_livingroom_user
+    password: !secret amcrest_livingroom_pass
+    stream_source: rtsp
+  - host: http://192.168.1.22/
+    name: Girls Room
+    username: !secret amcrest_girls_user
+    password: !secret amcrest_girls_pass
+    stream_source: rtsp

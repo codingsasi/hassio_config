@@ -9,8 +9,9 @@
     action:
       - service: notify.ian
         data:
-          message: "Chelsea just left home at {{ now() }}"
-  - alias: ChelsIanea left home # TODO Don't do this at night
+          message: "Chelsea just left home at {{ now() | timestamp_custom('%D %-I:%M %P') }}"
+          target: ["channel/chelsea_hass"]
+  - alias: Ian left home # TODO Don't do this at night
     trigger:
       - platform: state
         entity_id: device_tracker.ian_ians_phone
@@ -19,7 +20,8 @@
         for:
           minutes: 5
     action:
-      - service: notify.chelsea
+      - service: notify.ian
         data:
-          message: "Ian just left home at {{ now() }}"
+          message: "Ian just left home at {{ now() | timestamp_custom('%D %-I:%M %P') }}"
+          target: ["channel/ian_hass"]
   

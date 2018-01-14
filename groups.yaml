@@ -1,4 +1,4 @@
-   lights:
+  lights:
     name: Controls
     view: yes
     entities:
@@ -44,10 +44,6 @@
       - group.basement_tv
       - group.chromecast_radio
       - group.chromecasts
-  # upstairs:
-  #   name: Upstairs 
-  #   # view: yes
-  #   entities:
   chromecasts:
     name: Chromecasts
     entities:
@@ -75,88 +71,36 @@
       - input_boolean.lullaby
       - input_select.lullaby
       - input_select.radio_wakeup
-  livingroom_front_lights:
-    name: Living Room Front Lights
-    entities:
-      - light.living_room_front_left
-      - light.living_room_front_middle
-      - light.living_room_front_right
-  livingroom_back_lights:
-    name: Living Room Back Lights
-    entities:
-      - light.living_room_back_left
-      - light.living_room_back_middle
-      - light.living_room_back_right
-  livingroom_lights:
-    name: Living Room Lights
-    entities:
-      - light.living_room_front_left
-      - light.living_room_front_middle
-      - light.living_room_front_right
-      - light.living_room_back_left
-      - light.living_room_back_middle
-      - light.living_room_back_right
   livingroom:
     name: Living Room
     entities:
       - group.livingroom_lights
       - input_number.livingroom_brightness
-      - switch.wemo_switch
       - input_number.living_room_home_volume
-  basement_front_lights:
-    name: Basement Front Lights
-    entities:
-      - light.basement_front_left
-      - light.basement_front_right
-  basement_back_lights:
-   name: Basement Back Lights
-   entities:
-     - light.basement_back_left
-     - light.basement_back_right   
-  basement_lights:
-    name: Basement Lights
-    entities:
-      - light.basement_front_left
-      - light.basement_front_right
-      - light.basement_back_left
-      - light.basement_back_right 
   basement:
     name: Basement 
     entities:
-      - group.basement_lights
+      - light.basement
       - input_number.basement_brightness
       - input_number.basement_home_volume
-  office_lights:
-    name: Office Lights
-    entities:
-      - light.office_left
-      - light.office_right
   office:
     name: Office
     entities:
-      - group.office_lights
+      - light.office
       - input_number.office_brightness
       - input_number.office_home_volume
-  garage_lights:
-    name: Garage Lights
-    entities:
-      - light.garage_left
-      - light.garage_right
   garage:
     name: Garage
     entities:
+      - light.garage
+      - input_number.garage_brightness
       - cover.left_garage_door
       - cover.right_garage_door
-      - group.garage_lights
-  master_lights:
-    name: Master Lights
-    entities:
-      - light.master_bed
-      - light.master_closet
   master:
     name: Master Bedroom
     entities:
-      - group.master_lights
+      - light.master_bed
+      - input_number.master_brightness
       - input_number.master_home_volume
   shop:
     name: Shop
